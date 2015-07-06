@@ -1,0 +1,15 @@
+@import 'Winstrap/src/scss/winstrap';
+
+#content {
+  width: 80%;
+  margin: auto;
+}
+
+a.list-group-item {
+  transition: all 0.1s;
+  &:hover {
+    border-color: $gray-light;
+    background-color: $gray-lighter;
+  }
+  max-width: 500px;
+}
