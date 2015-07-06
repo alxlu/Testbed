@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <Title>Windows 10 Testbed</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Windows 10 Testbed</h1>
+      <p class="text-warning"><b>Warning:</b> This app provides unrestricted access to the WinRT surface and should be used for development purposes only. Do not put in the Address of a resource you do not own.</p>
+      <div class="form-group">
+        <label for="server-address-input">Server Address</label>
+        <input type="address"
+               class="form-control"
+               id="server-address-input"
+               placeholder="http://localhost:3000">
+        <br>
+        <div class="btn btn-sm" id="submit-address">Go!</div>
+      </div>
+      <label for="used-links">Previously Used:</label>
+      <div id="used-links" class="list-group">
+      </div>
+    </div>
+    <script src="bundles/bundle.js"></script>
+  </body>
+</html>
