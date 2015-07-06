@@ -39,7 +39,6 @@ function showAddresses() {
   });
 }
 
-
 submitBtn.addEventListener('click', function() {
   if (addressForm.value) {
     submitAddress(addressForm.value);
