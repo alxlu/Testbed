@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "Winstrap": "git+https://github.com/winjs/winstrap.git",
+    "lodash": "^3.10.0",
     "pouchdb": "^3.6.0",
     "pouchdb-upsert": "^1.1.1"
   }

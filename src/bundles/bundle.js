@@ -1,6 +1,7 @@
 'use strict';
 var PouchDB = require('pouchdb');
 PouchDB.plugin(require('pouchdb-upsert'));
+var _ = require('lodash');
 
 var db = new PouchDB('addresses');
 
@@ -13,8 +14,22 @@ function showAddresses() {
     var test2 = document.querySelectorAll('.delete-btn');
     console.log(test2);
     [].forEach.call(test2, function(el) {
-      el.addEventListener('click', function(e) {
-        console.log(this.parentElement.textContent);
+      el.addEventListener('click', function() {
+        var address = (this.parentElement
+                  .querySelector('span[class="address"]')
+                  .textContent);
+        var that = this;
+        db.get(address).then(function(doc) {
+          db.remove(doc).then(function(result) {
+            console.log(result);
+            if (result.ok) {
+              var listItem = that.parentElement;
+              listItem.parentElement.removeChild(listItem);
+            }
+          }).catch(function(err) {
+            console.log(err);
+          });
+        });
       });
     });
   });
@@ -33,9 +48,11 @@ submitBtn.addEventListener('click', function() {
 
 function addToList (address) {
   var addressEl = document.createElement('a');
-  var deleteText = '<span class="pull-text-right delete-btn"><a>delete</a></span>';
   addressEl.className = 'list-group-item';
-  addressEl.innerHTML = address + deleteText;
+  var tplstr = '<span class="address"><%- address %></span>' +
+    '<span class="pull-text-right delete-btn">delete</span>';
+  var compiled = _.template(tplstr);
+  addressEl.innerHTML = compiled({address: address});
   addressList.appendChild(addressEl);
 }
 
