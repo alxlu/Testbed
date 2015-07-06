@@ -47,6 +47,16 @@ submitBtn.addEventListener('click', function() {
   }
 });
 
+addressForm.addEventListener('keyup', function(e) {
+  if (addressForm.value) {
+    var key = e.which || e.keyCode;
+    if (key === 13) {
+      submitAddress(addressForm.value);
+      addressForm.value = '';
+    }
+  }
+});
+
 function addToList (address) {
   var addressEl = document.createElement('a');
   addressEl.className = 'list-group-item';
