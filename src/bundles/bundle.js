@@ -5,6 +5,10 @@ var _ = require('lodash');
 
 var db = new PouchDB('addresses');
 
+var addressForm = document.getElementById('server-address-input');
+var addressList = document.getElementById('used-links');
+var submitBtn = document.getElementById('submit-address');
+
 function showAddresses() {
   db.allDocs({include_docs: true, descending: true}).then(function(result) {
     console.log(result);
@@ -35,21 +39,19 @@ function showAddresses() {
   });
 }
 
-var addressForm = document.getElementById('server-address-input');
-var addressList = document.getElementById('used-links');
-
-var submitBtn = document.getElementById('submit-address');
 
 submitBtn.addEventListener('click', function() {
   if (addressForm.value) {
     submitAddress(addressForm.value);
+    addressForm.value = '';
   }
 });
 
 function addToList (address) {
   var addressEl = document.createElement('a');
   addressEl.className = 'list-group-item';
-  var tplstr = '<span class="address"><%- address %></span>' +
+  var tplstr = '<span class="address"><a href="<%= address %>">' +
+    '<%- address %></span></a>' +
     '<span class="pull-text-right delete-btn">delete</span>';
   var compiled = _.template(tplstr);
   addressEl.innerHTML = compiled({address: address});
@@ -59,6 +61,7 @@ function addToList (address) {
 function submitAddress (address) {
   db.putIfNotExists({_id: address}).then(function(result) {
     console.log(result);
+    window.location.href = address;
   });
 }
 
