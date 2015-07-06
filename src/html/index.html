@@ -8,6 +8,7 @@
   <body>
     <div id="content">
       <h1>Windows 10 Testbed</h1>
+      <p class="text-warning"><b>Warning:</b> This app provides unrestricted access to the WinRT surface and should be used for development purposes only. Do not put in the Address of a resource you do not own.</p>
       <div class="form-group">
         <label for="server-address-input">Server Address</label>
         <input type="address"
@@ -15,18 +16,12 @@
                id="server-address-input"
                placeholder="http://localhost:3000">
         <br>
-        <input class="btn btn-sm" type="submit" value="Go!">
+        <div class="btn btn-sm" id="submit-address">Go!</div>
       </div>
       <label for="used-links">Previously Used:</label>
       <div id="used-links" class="list-group">
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-        <a href="#" class="list-group-item">Morbi leo risus</a>
-        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-        <a href="#" class="list-group-item">Vestibulum at eros</a>
       </div>
     </div>
     <script src="bundles/bundle.js"></script>
   </body>
 </html>
-
