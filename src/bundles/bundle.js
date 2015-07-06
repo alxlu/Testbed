@@ -50,9 +50,10 @@ submitBtn.addEventListener('click', function() {
 function addToList (address) {
   var addressEl = document.createElement('a');
   addressEl.className = 'list-group-item';
-  var tplstr = '<span class="address"><a href="<%= address %>">' +
+  var tplstr = '<span class="address"><a class="win-link" href="<%= address %>">' +
     '<%- address %></span></a>' +
-    '<span class="pull-text-right delete-btn">delete</span>';
+    '<span class="pull-text-right delete-btn">' +
+    '<a class="text-warning">delete</a></span>';
   var compiled = _.template(tplstr);
   addressEl.innerHTML = compiled({address: address});
   addressList.appendChild(addressEl);
