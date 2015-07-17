@@ -4,6 +4,8 @@ gulp.task('core', ['clean', 'sass', 'lint', 'images', 'markup', 'misc', 'js', 'n
 
 gulp.task('default', ['core', 'watch']);
 
+gulp.task('build', ['core', 'browserify']);
+
 gulp.task('appx:dev', ['core', 'watchappx']);
 
 gulp.task('ext', ['core', 'watchext']);
