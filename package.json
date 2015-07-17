@@ -42,7 +42,6 @@
     "gulp-util": "^3.0.0",
     "gulp-watch": "^4.2.4",
     "jshint-stylish": "^1.0.0",
-    "lodash": "^3.9.3",
     "mocha": "^2.2.5",
     "ngrok": "^0.1.99",
     "pretty-hrtime": "~0.2.1",
