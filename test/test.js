@@ -13,8 +13,8 @@ var SITE_LOAD_TIMEOUT = 30000;
 
 var webdriverOpts = {
   name: 'TestBed-Test',
-  host: 'ondemand.saucelabs.com',
-  port: 80,
+  host: 'localhost:4445/wd/hub',
+  tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
   desiredCapabilities: {
@@ -41,7 +41,7 @@ describe('Win 10 Testbed E2E', function() {
   describe('checking added sites', function() {
     it ('keeps the list of sites stored', function(done) {
       this.client
-      .url('http://alx.lu/Testbed')
+      .url('http://localhost:8080')
       .pause(3000)
       .call(done);
     });
