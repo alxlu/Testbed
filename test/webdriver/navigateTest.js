@@ -4,7 +4,7 @@ var SITE_LOAD_TIMEOUT = 30000;
 var navigateTest = function() {
   it('loads the site', function(done) {
     this.client
-    .url('http://localhost:8080')
+    .url('http://alx.lu/Testbed')
     .waitForExist('body', SITE_LOAD_TIMEOUT)
     .getTitle().then(function(title) {
       expect(title).to.equal('Windows 10 Testbed');

@@ -11,6 +11,17 @@ var gulppath = path.join(require.resolve('gulp'), '../bin/gulp.js');
 
 var SITE_LOAD_TIMEOUT = 30000;
 
+var webdriverOpts = {
+  name: 'TestBed-Test',
+  host: 'ondemand.saucelabs.com',
+  port: 80,
+  user: process.env.SAUCE_USERNAME,
+  key: process.env.SAUCE_ACCESS_KEY,
+  desiredCapabilities: {
+    browserName: 'chrome'
+  }
+};
+
 exec('node ' + gulppath + ' build', function() {
   connect().use(serveStatic(path.join(__dirname, '../dist'))).listen(8080);
   run();
@@ -21,7 +32,7 @@ describe('Win 10 Testbed E2E', function() {
   this.client = {};
 
   before(function(done) {
-    this.client = webdriverio.remote({desiredCapabilities: {browserName: 'chrome'} });
+    this.client = webdriverio.remote(webdriverOpts);
     this.client.init(done);
   });
 
@@ -30,7 +41,7 @@ describe('Win 10 Testbed E2E', function() {
   describe('checking added sites', function() {
     it ('keeps the list of sites stored', function(done) {
       this.client
-      .url('http://localhost:8080')
+      .url('http://alx.lu/Testbed')
       .pause(3000)
       .call(done);
     });
