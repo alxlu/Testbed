@@ -33,7 +33,7 @@ var navigateTest = function() {
     .back()
     .pause(300)
     .waitForExist('body', SITE_LOAD_TIMEOUT)
-    .pause(2000)
+    .pause(300)
     .call(done);
   });
 
@@ -58,7 +58,7 @@ var navigateTest = function() {
     .back()
     .pause(300)
     .waitForExist('body', SITE_LOAD_TIMEOUT)
-    .pause(2000)
+    .pause(300)
     .call(done);
   });
 

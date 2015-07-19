@@ -47,14 +47,7 @@ describe('Win 10 Testbed E2E', function() {
 
   describe('navigating to sites', require('./webdriver/navigateTest').bind(this));
 
-  describe('checking added sites', function() {
-    it ('keeps the list of sites stored', function(done) {
-      this.client
-      .url('http://localhost:8000')
-      .pause(3000)
-      .call(done);
-    });
-  });
+  describe('checking added sites', require('./webdriver/listTest').bind(this));
 
   describe('removing sites', function() {
   });
