@@ -49,8 +49,7 @@ describe('Win 10 Testbed E2E', function() {
 
   describe('checking added sites', require('./webdriver/listTest').bind(this));
 
-  describe('removing sites', function() {
-  });
+  describe('removing sites', require('./webdriver/deleteTest').bind(this));
 
   after(function(done) {
     this.client.end(done);
