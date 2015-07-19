@@ -13,17 +13,18 @@ var SITE_LOAD_TIMEOUT = 30000;
 
 var webdriverOpts = {
   name: 'TestBed-Test',
-  host: 'localhost:4445/wd/hub',
-  tunnelIdentifier: process.env.TRAVIS_JOB_NUMBER,
+  host: 'ondemand.saucelabs.com',
+  port: 80,
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
   desiredCapabilities: {
-    browserName: 'chrome'
+    browserName: 'chrome',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
   }
 };
 
 exec('node ' + gulppath + ' build', function() {
-  connect().use(serveStatic(path.join(__dirname, '../dist'))).listen(8080);
+  connect().use(serveStatic(path.join(__dirname, '../dist'))).listen(8000);
   run();
 });
 
@@ -41,7 +42,7 @@ describe('Win 10 Testbed E2E', function() {
   describe('checking added sites', function() {
     it ('keeps the list of sites stored', function(done) {
       this.client
-      .url('http://localhost:8080')
+      .url('http://localhost:8000')
       .pause(3000)
       .call(done);
     });
