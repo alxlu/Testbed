@@ -23,6 +23,14 @@ var webdriverOpts = {
   }
 };
 
+if (!process.env.CI) {
+  webdriverOpts = {
+    desiredCapabilities: {
+      browserName: 'chrome'
+    }
+  }
+}
+
 exec('node ' + gulppath + ' build', function() {
   connect().use(serveStatic(path.join(__dirname, '../dist'))).listen(8000);
   run();
