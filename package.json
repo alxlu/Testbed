@@ -10,7 +10,8 @@
     "test": "mocha --delay"
   },
   "browser": {
-    "plugin": "./src/bundles/vendor/plugin.js"
+    "activationListener": "./src/bundles/vendor/activationListener.js",
+    "sysBackButton": "./src/bundles/vendor/sysBackButton.js"
   },
   "browserify": {
     "transform": [
