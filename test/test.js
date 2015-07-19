@@ -12,12 +12,12 @@ var gulppath = path.join(require.resolve('gulp'), '../bin/gulp.js');
 var SITE_LOAD_TIMEOUT = 30000;
 
 var webdriverOpts = {
-  name: 'TestBed-Test',
   host: 'ondemand.saucelabs.com',
   port: 80,
   user: process.env.SAUCE_USERNAME,
   key: process.env.SAUCE_ACCESS_KEY,
   desiredCapabilities: {
+    name: 'TestBed-Test',
     browserName: 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
   }
