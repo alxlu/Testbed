@@ -24,7 +24,7 @@ var activationListener = function () {
         toastHandler(args.argument, args.userInput.textReply);
       }
     });
-  };
-}
+  }
+};
 
 module.exports = activationListener;
