@@ -3,11 +3,8 @@ var PouchDB = require('pouchdb');
 PouchDB.plugin(require('pouchdb-upsert'));
 var _ = require('lodash');
 
-var activationListener = require('activationListener');
-var sysBackButton = require('sysBackButton');
-
-activationListener();
-sysBackButton();
+require('activationListener')();
+require('sysBackButton')();
 
 var db = new PouchDB('addresses');
 
