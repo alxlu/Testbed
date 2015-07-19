@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var SITE_LOAD_TIMEOUT = 30000;
 var url = require('url');
+
 var listTest = function() {
   var urls = [
     'https://contosotravel.azurewebsites.net',
