@@ -31,6 +31,15 @@
       Id="App"
       StartPage="http://localhost:3000">
 
+      <uap:ApplicationContentUriRules>
+        <uap:Rule Type="include" WindowsRuntimeAccess="all" Match="http://*.*" />
+        <uap:Rule Type="include" WindowsRuntimeAccess="all" Match="http://*.*.*" />
+        <uap:Rule Type="include" WindowsRuntimeAccess="all" Match="http://*.*.*.*" />
+        <uap:Rule Type="include" WindowsRuntimeAccess="all" Match="https://*.*" />
+        <uap:Rule Type="include" WindowsRuntimeAccess="all" Match="https://*.*.*" />
+        <uap:Rule Type="include" WindowsRuntimeAccess="all" Match="https://*.*.*.*" />
+      </uap:ApplicationContentUriRules>
+
       <uap:VisualElements
         DisplayName="Testbed"
         Description="Testbed"
@@ -40,10 +49,6 @@
         
         <uap:SplashScreen Image="img\splashscreen.png" />
       </uap:VisualElements>
-      <!-- Describe where the app ends and the internet begins -->
-      <uap:ApplicationContentUriRules>
-        <uap:Rule Type="include" Match="*" WindowsRuntimeAccess="all"/>
-      </uap:ApplicationContentUriRules>
     </Application>
   </Applications>
   <!-- List different application capabilities -->
