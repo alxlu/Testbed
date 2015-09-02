@@ -18,7 +18,7 @@ var webdriverOpts = {
   key: process.env.SAUCE_ACCESS_KEY,
   desiredCapabilities: {
     name: 'TestBed-Test',
-    browserName: 'chrome',
+    browserName: 'microsoftedge',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
   }
 };
